@@ -1,0 +1,127 @@
+/* Grundlegende Einstellungen */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Header */
+.site-header {
+  background-color: #004d40;
+  color: white;
+  padding: 1rem 0;
+}
+
+.site-header .logo {
+  width: 60px;
+  vertical-align: middle;
+}
+
+.site-header h1 {
+  display: inline-block;
+  margin-left: 1rem;
+  font-size: 1.8rem;
+  vertical-align: middle;
+}
+
+nav {
+  float: right;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* Hauptbereich */
+.main-content {
+  background-color: white;
+  padding: 2rem 0;
+  margin-top: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.intro {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Lernpfade als Karten */
+.link-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+
+.card {
+  background-color: #e0f2f1;
+  border: 1px solid #b2dfdb;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+  color: #004d40;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  background-color: #b2dfdb;
+}
+
+/* Footer */
+.site-footer {
+  background-color: #004d40;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+/* Responsive Korrekturen */
+@media (max-width: 768px) {
+  .site-header h1 {
+    display: block;
+    text-align: center;
+    margin: 0.5rem 0;
+  }
+
+  nav {
+    float: none;
+    text-align: center;
+  }
+
+  .nav-links {
+    justify-content: center;
+  }
+}

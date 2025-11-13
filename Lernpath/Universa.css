@@ -1,0 +1,66 @@
+
+#Überschrift {
+  color: white; /* Added semicolon */
+  font-size: 30px;
+  font-family: Arial;
+  text-align: center;
+}
+
+#Text {
+  color: white; /* Added semicolon */
+  font-size: 20px;
+  font-family: Arial;
+  text-align: center;
+}
+
+#input {
+  text-align: center;
+}
+
+/* Dark overlay */
+body::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay with 50% opacity */
+  pointer-events: none;
+  z-index: -1; /* Ensures the overlay is behind the text */
+}
+#bodyDNDB {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/2/2f/Bienen_auf_Honigwabe.jpg');
+  background-size: 240%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#bodyIH {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Insektenhotels_-Nisthilfen_selbstgemacht-_2016_by-RaBoe_13.jpg/2560px-Insektenhotels_-Nisthilfen_selbstgemacht-_2016_by-RaBoe_13.jpg');
+  background-size: 300%;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+#bodyDAH {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Vespa_velutina_MHNT.jpg/1920px-Vespa_velutina_MHNT.jpg');
+  background-size: 300%;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+#bodyBH {
+  background-image: url('BilderPfad/qr-code.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+#bodyBS {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/1/13/Blumenwiese_005-2.jpg');
+  background-size: 300%;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}

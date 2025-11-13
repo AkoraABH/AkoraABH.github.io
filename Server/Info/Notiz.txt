@@ -1,0 +1,85 @@
+}
+{
+  "name": "Carl Goestenkors",
+  "rolle": "Mitglied",
+  "password": "1234",
+  "rang": "Mitglied"
+}
+{
+  "name": "Emilia Sofi Littau",
+  "rolle": "Mitglied",
+  "password": "1234",
+  "rang": "Mitglied"
+}
+{
+  "name": "Emily Breimhorst",
+  "rolle": "Mitglied",
+  "password": "1234",
+  "rang": "Mitglied"
+}
+{
+  "name": "Jarne Schnurbus",
+  "rolle": "Mitglied",
+  "password": "1234",
+  "rang": "Mitglied"
+}
+{
+  "name": "Jean-Luca Wagner",
+  "rolle": "Mitglied",
+  "password": "1234",
+  "rang": "Mitglied"
+}
+{
+  "name": "Joys Sachs",
+  "rolle": "Mitglied",
+  "password": "1234",
+  "rang": "Mitglied"
+}
+{
+  "name": "Leandro Schröder",
+  "rolle": "Mitglied",
+  "password": "1234",
+  "rang": "Mitglied"
+}
+{
+  "name": "Lilly-Sophie Thies",
+  "rolle": "Mitglied",
+  "password": "1234",
+  "rang": "Mitglied"
+}
+{
+  "name": "Mia-Josephine Engelmeier",
+  "rolle": "Mitglied",
+  "password": "1234",
+  "rang": "Mitglied"
+}
+{
+  "name": "Nea-Marie Schnacke",
+  "rolle": "Mitglied",
+  "password": "1234",
+  "rang": "Mitglied"
+}
+{
+  "name": "Nicklas Grote",
+  "rolle": "Mitglied",
+  "password": "1234",
+  "rang": "Mitglied"
+}
+{
+  "name": "Noah Luca Moro",
+  "rolle": "Mitglied",
+  "password": "1234",
+  "rang": "Mitglied"
+} 
+{
+  "name": "Soeren Brockbals",
+  "rolle": "Mitglied",
+  "password": "1234",
+  "rang": "Mitglied"
+}
+{
+  "name": "Tina Richerd",
+  "rolle": "Mitglied",
+  "password": "1234",
+  "rang": "Mitglied"
+}

@@ -1,0 +1,22 @@
+body{
+ background-color: black;
+}
+input{
+ color: white;
+ font-family: Courier;
+ background-color: black;
+ vertical-align: center;
+ text-align: center;
+}
+.show{
+   vertical-align: bottom;
+   text-align: center;
+}
+#displayText {
+  padding: 10px;
+  color: white;
+  background-color: black;
+  font-family: Courier;
+  margin-bottom: 20px;
+  min-height: 30px;
+}

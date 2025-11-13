@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Birte Lehnen",
+    "rolle": "Leitung",
+    "password": "1234",
+    "rang": "Admin"
+  }
+  {
+    "name": "Natallia Sandmeier",
+    "rolle": "Stellvertretende Leitung",
+    "password": "1234",
+    "rang": "Admin"
+  }
+  {
+    "name": "Benedikt Heihoff",
+    "rolle": "Mitglied",
+    "password": "1234",
+    "rang": "Mitglied"
+  }
+  {
+    "name": "Yannik Penner",
+    "rolle": "Mitglied",
+    "password": "1234",
+    "rang": "Mitglied"
+
+]

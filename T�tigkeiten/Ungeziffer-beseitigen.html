@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bienen & Imkerei AG</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #222;
+      color: white;
+      font-family: 'Open Sans', sans-serif;
+      text-align: center;
+    }
+
+    .wachsmotte {
+      display: none; /* Video erst später sichtbar */
+    }
+
+    .buttons button {
+      display: block;
+      margin: 20px auto;
+      width: 150px;
+      border: 2px solid white;
+      background-color: transparent;
+      color: white;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    #infoM {
+      border: 2px solid white;
+      background: transparent;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    #ausgabeWM {
+      margin-top: 10px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="UE">
+    <h1 id="uberschriftTAT">Verschiedendes Ungeziefer</h1>
+
+    <div id="Start"> 
+      <p id="BText">Irgendwas stimmt mit unserem Bienenstock nicht. Was es wohl ist?</p>
+      <img src="PNGs/Start-UB.jpeg" alt="Bienenstock" width="300" height="500" id="BienenBild">
+    </div>
+
+    <div id="WU">
+      <div class="wachsmotte" id="wachsmotteVideo">
+        <video src="PNGs/MotteL1.mov" width="300" height="500" autoplay loop muted></video>
+        <p id="WText">Oh nein, es sind Wachsmotten!</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="buttons"> 
+    <button id="randomBtn">Weiter</button>
+  </div>
+
+  <!-- Button und Text IMMER sichtbar -->
+  <div>
+    <button id="infoM">Gefahr eines Wachsmottenbefalls</button>
+    <p id="ausgabeWM"></p>
+  </div>
+
+  <script>
+    // --- "Weiter"-Button ---
+    document.getElementById('randomBtn').addEventListener('click', function() {
+      console.log("Button gedrückt!");
+      document.getElementById("BText").style.display = "none";
+      document.getElementById("BienenBild").style.display = "none";
+      document.getElementById("wachsmotteVideo").style.display = "block";
+    });
+
+    // --- Info-Button ---
+    const infoButton = document.getElementById("infoM");
+    const ausgabeWM = document.getElementById("ausgabeWM");
+
+    infoButton.addEventListener("click", function() {
+      if (ausgabeWM.style.display === "none" || ausgabeWM.style.display === "") {
+        ausgabeWM.innerHTML = `
+          <h2>Gefahr eines Wachsmottenbefalls</h2>
+          <p>Die Wachsmotte legt ihre Eier in Bienenstöcke, besonders in solche mit schwachen Bienenvölkern.
+          Die Larven fressen sich durch Waben, Pollen und Wachs, wodurch große Schäden entstehen können.</p>
+          <p><em>Tipp:</em> Regelmäßige Kontrolle und Sauberkeit helfen, einen Befall zu vermeiden.</p>
+        `;
+        ausgabeWM.style.display = "block";
+      } else {
+        ausgabeWM.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>

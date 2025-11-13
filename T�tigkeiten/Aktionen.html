@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unsere Aktionen</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .event {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 15px 20px;
+      margin-bottom: 15px;
+    }
+    .date {
+      font-weight: bold;
+      color: #007BFF;
+    }
+  </style>
+</head>
+<body>
+  <h1>Chronologische Liste</h1>
+  <div id="data-container"></div>
+
+  <script>
+    // Daten aus einer externen JSON-Datei laden
+    fetch('Aktionen.json')
+      .then(response => response.json())
+      .then(data => {
+        // Daten chronologisch sortieren (ältestes zuerst)
+        data.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+        const container = document.getElementById('data-container');
+        data.forEach(item => {
+          const dateObj = new Date(item.date);
+          // Datum nur als Tag.Monat anzeigen
+          const options = { day: '2-digit', month: '2-digit' };
+          const formattedDate = dateObj.toLocaleDateString('de-DE', options);
+
+          const div = document.createElement('div');
+          div.classList.add('event');
+          div.innerHTML = `
+            <div class="date">${formattedDate}</div>
+            <div class="title">${item.title}</div>
+            <div class="desc">${item.description}</div>
+          `;
+          container.appendChild(div);
+        });
+      })
+      .catch(error => {
+        console.error('Fehler beim Laden der JSON-Datei:', error);
+      });
+  </script>
+</body>
+</html>

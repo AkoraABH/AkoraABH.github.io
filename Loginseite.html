@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <style>
+    @import './style.css';
+  </style>
+</head>
+<body id="bodyMain">
+  <form>
+    <div class="login-botten">
+      <label for="username">Benutzername:</label>
+      <input id="username" type="text" placeholder="Benutzername" />
+      <br>
+
+      <label for="passwort">Passwort:</label>
+      <input id="passwort" type="password" class="passwort" placeholder="Passwort" />
+      <br>
+
+      <button id="button" type="button" onclick="überprüfen()">Weiter</button>
+    </div>
+  </form>
+
+  <div id="feedback" class="feedback"></div>
+
+  <script>
+    // Definiere nutzerDaten als leeres Objekt
+    let nutzerDaten = {};
+
+    // Funktion zum Laden der Daten aus der JSON-Datei
+    async function ladeDaten() {
+      try {
+        const response = await fetch('/Accounts.json'); // Überprüfe den Pfad
+        if (!response.ok) {
+          throw new Error(`Fehler beim Laden der Datei: ${response.status} ${response.statusText}`);
+        }
+        const nutzerDaten = await response.json();  // JSON-Daten parsen
+        console.log('Daten erfolgreich geladen:', nutzerDaten);
+      } catch (error) {
+        console.error('Fehler beim Laden der Daten:', error);
+        document.getElementById('feedback').textContent = `Fehler: ${error.message}`;
+      }
+    }
+
+
+    // Stelle sicher, dass die Daten geladen sind, bevor der Login überprüft wird
+    window.onload = function() {
+      ladeDaten();  // Daten beim Laden der Seite laden
+    };
+
+    function überprüfen() {
+      // Benutzereingaben abrufen
+      const benutzername = document.getElementById('username').value.trim();
+      const passwort = document.getElementById('passwort').value.trim();
+      const feedback = document.getElementById('feedback');
+
+      // Überprüfen, ob Benutzername und Passwort korrekt sind
+      if (benutzername === '' || passwort === '') {
+        feedback.style.display = 'block';
+        feedback.textContent = 'Füllen Sie bitte beide Felder aus!';
+      } else if (nutzerDaten[benutzername] === passwort) {
+        feedback.style.display = 'none';  // Fehlernachricht ausblenden
+        alert('Login erfolgreich!');
+        alert('Willkommen ' + benutzername);
+
+        // Weiterleitung je nach Benutzer
+        if (benutzername === 'Yannik') {
+          window.location.href = `Login/Account/Chef.html?username=${encodeURIComponent(benutzername)}`;
+        } else if (benutzername === 'Frau Sandmeier' || benutzername === 'Frau Lehnen') {
+          window.location.href = `Login/Account/Admin.html?username=${encodeURIComponent(benutzername)}`;
+        } else {
+          window.location.href = `Login/Account/Mitglied.html?username=${encodeURIComponent(benutzername)}`;
+        }
+      } else {
+        feedback.style.display = 'block';
+        feedback.textContent = 'Benutzername oder Passwort sind falsch!';
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f3f3f3;
+    }
+    .login-box {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+    input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      width: 100%;
+      padding: 0.5rem;
+      background-color: #00796b;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .error { color: red; text-align: center; }
+    .success { color: green; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Benutzername" />
+    <input type="password" id="password" placeholder="Passwort" />
+    <button onclick="login()">Einloggen</button>
+    <p id="status"></p>
+  </div>
+
+  <script>
+    async function login() {
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const status = document.getElementById("status");
+
+      if (!username || !password) {
+        status.textContent = "Bitte alle Felder ausfüllen.";
+        status.className = "error";
+        return;
+      }
+
+      try {
+        // Anfrage an dein Backend-API
+        const res = await fetch("/api/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, password })
+        });
+
+        const data = await res.json();
+
+        if (data.success) {
+          status.textContent = `Willkommen, ${data.name}! (Rang: ${data.rang})`;
+          status.className = "success";
+
+          // Benutzerinfo speichern (optional)
+          localStorage.setItem("user", JSON.stringify(data));
+
+          // Weiterleitung je nach Rang
+          setTimeout(() => {
+            switch (data.rang) {
+              case "Mitglied":
+                window.location.href = "Mitglied.html"; break;
+              case "Admin":
+                window.location.href = "Admin.html"; break;
+              case "Chef":
+                window.location.href = "Chef.html"; break;
+            }
+          }, 1000);
+        } else {
+          status.textContent = data.message || "❌ Login fehlgeschlagen.";
+          status.className = "error";
+        }
+      } catch (err) {
+        console.error(err);
+        status.textContent = "Server nicht erreichbar.";
+        status.className = "error";
+      }
+    }
+  </script>
+</body>
+</html>

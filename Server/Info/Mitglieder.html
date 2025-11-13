@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Unser Team</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+  <style>
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .team-card {
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+      text-align: center;
+    }
+
+    .team-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+    }
+
+    .team-name {
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: #004d40;
+    }
+
+    .team-role {
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+  </style>
+<body>
+  <h1 style="text-align:center;">Unser Team</h1>
+  <div class="team-grid" id="mitgliedsliste"></div>
+
+  <script>
+    fetch('Helfer.json')
+      .then(response => response.json())
+      .then(data => {
+        const mitgliedslisteDiv = document.getElementById("mitgliedsliste");
+        data.forEach(member => {
+          const memberCard = document.createElement("div");
+          memberCard.classList.add("team-card");
+          memberCard.innerHTML = `
+            <div class="team-card-content">
+              <div class="team-name">${member.name}</div>
+              <div class="team-role">${member.rolle}</div>
+            </div>
+          `;
+          mitgliedslisteDiv.appendChild(memberCard);
+        });
+      })
+      .catch(error => {
+        console.error('Fehler beim Laden der Helfer.json:', error);
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text anzeigen</title>
+    <style>
+     @import './Cheat-Style.css';
+    </style>
+</head>
+<body>
+  
+    <div id="displayText"></div>
+    <div class="show">
+    <input type="text" id="inputText">
+    </div>
+    <script>
+        document.getElementById('inputText').addEventListener('keydown', function(event) {
+            // Prüfen, ob die Enter-Taste gedrückt wurde
+            if (event.key === 'Enter') {
+                var text = document.getElementById('inputText').value;  // Holen des Textes aus dem Input-Feld
+                document.getElementById('displayText').textContent = text;  // Text in das Anzeigefeld setzen
+                event.preventDefault(); // Verhindert das Standardverhalten (z. B. Formularabsendung)
+            }
+        });
+    </script>
+
+</body>
+</html>
+

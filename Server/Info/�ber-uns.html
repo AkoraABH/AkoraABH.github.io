@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Über uns</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: White;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #FFBF00;
+      color: white;
+      padding: 2.5rem 1rem;
+      text-align: center;
+      text-shadow: 
+        0 0 5px #Off,
+        0 0 10px #Off,
+        0 0 20px #Off,
+        0 0 40px #Off;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    h3 {
+      color: #004d40;
+      font-size: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    p {
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    /* Mitgliederbereich */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .team-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+
+    .team-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .team-card h4 {
+      margin: 0.5rem 0;
+      color: #004d40;
+    }
+
+    .team-card p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Über uns</h1>
+  </header>
+
+  <main>
+    <h3>Vorwort</h3>
+    <p>
+      Wir machen diese AG schon seit vielen Jahren. Genauer gesagt seit 2016. Seit also 
+      <span id="jahre"></span> Jahren. Seit also ein paar Jahren arbeiten wir gerne mit Bienen und auch am Schulgarten. Wir bemühen uns auch bei Veranstaltungen wie dem Weihnachtsmarkt.
+    </p>
+
+    <h3>Mitglieder</h3>
+    <div class="team-grid" id="mitgliedsliste"></div>
+  </main>
+
+  <script>
+    // Alter berechnen
+    const gruendungDatum = new Date(2016, 0, 9);
+    const aktuellesDatum = new Date();
+    const differenzInMillisekunden = aktuellesDatum - gruendungDatum;
+    const differenzInJahren = differenzInMillisekunden / (1000 * 60 * 60 * 24 * 365.25);
+    document.getElementById("jahre").innerText = Math.floor(differenzInJahren);
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+</head>
+
+<body>
+
+
+
+
+
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const name = urlParams.get('name'); // Wert des Parameters 'name'
+
+  if (name) {
+      // Den Namen auf der Seite anzeigen
+      document.getElementById('info').innerText = `Willkommen, ${name}!`;
+  } else {
+      document.getElementById('info').innerText = "Kein Name angegeben!";
+  
+</script>
+  
+</body>
+
+  
+</html>

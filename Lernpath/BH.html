@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Lern Pfad</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <style>
+  @import './Universa.css';
+  </style>
+</head>
+
+<body id="bodyBH">
+  <h1 id="Überschrift">Das Zuhause der Bienen</h1>
+  <br>
+  <p id="Text">
+    Einen Bienenzüchter nennt man Imker. Er sorgt dafür, dass es den Bienen gut geht, damit er viel Honig ernten kann. Damit sie schneller vorwärtskommen, gibt er ihnen vorgefertigte Wachsplatten in Holzkästen. Auf diesen Platten bauen die Bienen die Waben auf. So brauchen sie weniger Zeit für den Wabenbau und konzentrieren sich auf das Sammeln von Nektar und auf die Pflege der Jungtiere. Als Lohn holt sich der Imker die fertigen Waben aus dem Bienenstock. Er entfernt die Wachsschicht oben und gibt die Waben in eine Schleudermaschine. Die Waben werden solange geschleudert, bis der ganze Honig rausgeflossen ist. Nun wird er noch in Gläsern abgefüllt.
+
+  </p>
+  <p id="Text">     Das zweite Produkt ist das Wachs. Daraus haben die Menschen schon im Mittelalter ihre Kerzen gezogen oder gegossen. Wachskerzen duften nicht nur gut, sondern sie rußen auch nicht. Damit die Bienen im Winter nicht verhungern, muss der Imker ihnen einen Ersatzt geben. Weil Honig viel Zucker enthält, bietet sich dickes Zuckerwasser an. Den Zucker kann der Imker billig einkaufen, den Honig teuer verkaufen. </p>
+    <button onclick="toggleBackground()">Hintergrund wechseln</button>
+
+    <script>
+      let backgroundIsChanged = false;
+
+      function toggleBackground() {
+        const body = document.body;
+
+        if (!backgroundIsChanged) {
+          body.style.backgroundImage = "url('BilderPfad/qr-code.png')";
+          body.style.backgroundSize = "cover";
+          body.style.backgroundRepeat = "no-repeat";
+          body.style.backgroundPosition = "center";
+          body.style.backgroundAttachment = "fixed";
+        } else {
+          body.style.backgroundImage = "url('BilderPfad/IMG_0269.jpeg')";
+          body.style.backgroundSize = "cover";
+          body.style.backgroundRepeat = "no-repeat";
+          body.style.backgroundPosition = "center";
+          body.style.backgroundAttachment = "fixed";
+        }
+
+        backgroundIsChanged = !backgroundIsChanged;
+      }
+  </script>
+</body>
+
+</html>
